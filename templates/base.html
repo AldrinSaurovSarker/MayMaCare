@@ -40,9 +40,11 @@
                 Services
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                {% for service in services %}
-                <li><a class="dropdown-item" href="{% url 'service' service.id %}">{{service.name}}</a></li>
-                {% endfor %}
+                {% if services %}
+                  {% for service in services %}
+                    <li><a class="dropdown-item" href="{% url 'service' service.id %}">{{service.name}}</a></li>
+                  {% endfor %}
+                {% endif %}
               </ul>
             </li>
 
@@ -76,18 +78,20 @@
     {% block content %} {% endblock content %}
 
     <div class="container quick-links-container">
-      {% for service in services %}
-      <div class="quick-link-content">
-        <div
-          class="quick-link-background"
-          style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('{{service.img.url}}');"
-        ></div>
-        <a class="quick-link" href="{% url 'service' service.id %}">
-          <img class="logo" src="{% static 'images/logo.png' %}" alt="" srcset="" />
-          <div class="quick-link-name">{{service.name}}</div>
-        </a>
-      </div>
-      {% endfor %}
+      {% if services %}
+        {% for service in services %}
+          <div class="quick-link-content">
+            <div
+              class="quick-link-background"
+              style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('{{service.img.url}}');"
+            ></div>
+            <a class="quick-link" href="{% url 'service' service.id %}">
+              <img class="logo" src="{% static 'images/logo.png' %}" alt="" srcset="" />
+              <div class="quick-link-name">{{service.name}}</div>
+            </a>
+          </div>
+        {% endfor %}
+      {% endif %}
     </div>
 
     <div class="support-team py-5">
@@ -252,16 +256,16 @@
       </div>
     </footer>
 
-    {% comment %} <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> {% endcomment %}
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    {% comment %} <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> {% endcomment %}
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
-    {% comment %} <script>
+    <script>
       $(function() {
         $("#tags" ).autocomplete({
           source: "{% url 'autosuggest' %}"
         });
       });
-    </script> {% endcomment %}
+    </script>
   </body>
 </html>
