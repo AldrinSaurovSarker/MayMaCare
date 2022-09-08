@@ -1,1 +1,1 @@
-web: gunicorn MAYMACARE.wsgi --log-file -
+web: gunicorn MayMaCare.wsgi --log-file -
