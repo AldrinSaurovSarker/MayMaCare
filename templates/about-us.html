@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+    .main-content h3 {
+        color: palevioletred;
+    }
+
+    .main-content-highlight {
+        display: grid;
+        grid-gap: 5vh;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .highlight-blog {
+        padding: 20px;
+    }
+
+    .highlight-logo {
+        margin-bottom: 20px;
+    }
+
+    .highlight-logo img {
+        height: 50%;
+        width: 50%;
+    }
+
+    @media screen and (max-width: 991px) {
+        .main-content-highlight {
+            grid-template-columns: 1fr;
+        }    
+    }
+</style>
+
+<div class="container main-container p-5 text-center">
+    <div class="main-title text-start fs-1 py-5">
+        About Us
+    </div>
+
+    <div class="main-content">
+        <div class="main-content-highlight">
+            <div class="highlight-blog">
+                <div class="highlight-logo">
+                    <img class="img-fluid" src="{% static 'images/logo.png' %}"/>
+                </div>
+
+                <div class="highlight-title">
+                    <h3>50 years of making people’s lives better</h3>
+                </div>
+
+                <div class="highlight-content">
+                    <p>The heart and soul of Suncare’s business model is providing innovative and personalised in-home care, allied health and clinical services. Our goal is to enable you to live life your way.<br> Since 1970, we have remained dedicated to the needs of older and vulnerable people in our local communities. We provide innovative care services, advocate for change and constantly trial new and better solutions that support our customers.</p>
+                </div>
+            </div>
+
+            <div class="highlight-blog">
+                <div class="highlight-logo">
+                    <img class="img-fluid" src="{% static 'images/logo.png' %}"/>
+                </div>
+
+                <div class="highlight-title">
+                    <h3>A caring community of MayMaCares</h3>
+                </div>
+
+                <div class="highlight-content">
+                    <p>Our staff, or as we like to call them, our Suncarers, live in the communities where they work. They pride themselves on understanding the unique and individual needs of our customers and their communities.
+                    <br>Our in-home programs and services are available throughout Central and Southeast Queensland, from the Gold Coast to Rockhampton and beyond.</p>
+                </div>
+            </div>
+
+            <div class="highlight-blog">
+                <div class="highlight-logo">
+                    <img class="img-fluid" src="{% static 'images/logo.png' %}"/>
+                </div>
+
+                <div class="highlight-title">
+                    <h3>Our commitment to excellence</h3>
+                </div>
+
+                <div class="highlight-content">
+                    <p>Our services are assessed in accordance with the requirements of Home Care Standards through the Department of Social Services Quality Review Program.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content-vision p-3">
+            <h3>Our vision</h3>
+            <div class="vision">
+                Our vision is making people’s lives better and our programs and services are inspired by our vision and values. This means we continually aspire to be:
+
+                <ul>
+                    <li>your first choice for in-home care and community services</li>
+                    <li>a preferred employer attracting quality, compassionate team members</li>
+                    <li>continually improving community outcomes</li>
+                    <li>forging strong and positive relationships with our stakeholders which include our employees, volunteers, customers, their families and the community in general.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock content %}

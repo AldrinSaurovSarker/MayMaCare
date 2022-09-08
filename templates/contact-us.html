@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container main-container p-5 text-center">
+    <div class="main-title text-start fs-1 py-5">
+        Contact Us
+    </div>
+
+    <div class="main-content">
+        <br><h2>We're here to help</h2>
+        <p>If you have any questions or would just like to talk to someone please call us on <strong><a href="callto:1800-786-227">1800 786 227</a></strong>.</p>
+        <p>Or, email to <strong><a href="mailto:xyz@abc.com">xyz@abc.com</a></strong></p>
+    </div>
+</div>
+
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock content %}

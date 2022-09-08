@@ -1,0 +1,267 @@
+{% load static %} {% static 'images' as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    {% comment %} <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"> {% endcomment %}
+    <script src="https://kit.fontawesome.com/09146724eb.js"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>{{company_name}}</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <img class="logo" src="{% static 'images/logo.png' %}" alt="" />
+          <div class="company-name text-left">
+            <span class="fw-bold fs-1">{{company_name}}</span><br />
+            <span class="fw-bold fs-6 text-danger text-uppercase">Community Services</span>
+          </div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'aboutUs' %}">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Services
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% for service in services %}
+                <li><a class="dropdown-item" href="{% url 'service' service.id %}">{{service.name}}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contactUs' %}">Contact us</a>
+            </li>
+          </ul>
+          <form class="ms-5 d-grid d-md-flex align-middle justify-content-center" method="get" action="{% url 'search' %}">
+            {% csrf_token %}
+            <input name="q" class="form-control me-2" id="tags" type="search" placeholder="Search" aria-label="Search"/>
+            <button class="btn btn-outline-success" type="submit">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="banner">
+      <div class="container-fluid banner-container" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('{{currentService.img.url}}');">
+        <div class="banner-text">
+          <h1>{{bannerText}}</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="statement alert alert-primary">
+      <a href="{% url 'covid' %}">Coronavirus (COVID-19) MayMaCare Community Services Statement</a>
+    </div>
+
+    {% block content %} {% endblock content %}
+
+    <div class="container quick-links-container">
+      {% for service in services %}
+      <div class="quick-link-content">
+        <div
+          class="quick-link-background"
+          style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('{{service.img.url}}');"
+        ></div>
+        <a class="quick-link" href="{% url 'service' service.id %}">
+          <img class="logo" src="{% static 'images/logo.png' %}" alt="" srcset="" />
+          <div class="quick-link-name">{{service.name}}</div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="support-team py-5">
+      <div class="support-left d-grid d-md-flex">
+        <div class="support-logo d-flex justify-content-center">
+          <img class="logo" src="{% static 'images/logo.png' %}" alt="" srcset=""/>
+        </div>
+        <div class="support-text">
+          <h4>Life on your teams</h4>
+          <h2>Contact Our Support Team</h2>
+        </div>
+      </div>
+
+      <div class="support-right">
+        <div class="btn-group">
+          <div class="btn btn-outline-dark">
+            <i class="fas fa-phone-volume me-2"></i>
+            <span class="hotline-number">
+              <a href="tel:1800-786-227">1800 786 227</a>
+            </span>
+          </div>
+
+          <div class="ms-auto btn btn-outline-dark">
+            <i class="fas fa-clock me-2"></i>
+            <span class="hotline-number">
+              <a href="{% url 'requestCallback' %}">Request a call back</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer bg-dark">
+      <div class="container-fluid footer-container">
+        <div class="footer-title">
+          <h1>Making people's lives better</h1>
+        </div>
+
+        <div class="footer-content">
+          <div class="cont content-1">
+            <ul>
+              <li class="fs-2">Contact Us</li>
+              <li class="d-md-flex d-grid">
+                <span class="item-icon fs-2">
+                  <i class="fas fa-phone"></i>
+                </span>
+                <span class="item-info">
+                  <p>
+                    <span style="font-size: 20px">1800 786 227</span><br />
+                    <span class="text-secondary">Phone Support</span>
+                  </p>
+                </span>
+              </li>
+
+              <li class="d-md-flex d-grid">
+                <span class="item-icon fs-2">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <span class="item-info">
+                  <p>
+                    <span style="font-size: 20px">info@suncare.org.au</span
+                    ><br />
+                    <span class="text-secondary">Email Support</span>
+                  </p>
+                </span>
+              </li>
+
+              <li class="d-md-flex d-grid">
+                <span class="item-icon fs-2">
+                  <i class="fas fa-map-marker-alt"></i>
+                </span>
+                <span class="item-info">
+                  <p>
+                    <span style="font-size: 20px"
+                      >Suncare Business Support Office</span
+                    ><br />
+                    <span class="text-secondary"
+                      >Maroochydore Homemaker Centre, Sunshine Coast Qld</span
+                    >
+                  </p>
+                </span>
+              </li>
+
+              <li class="social">
+                <ul>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-instagram"></i>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-linkedin"></i>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-youtube"></i>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="cont content-2">
+            <ul>
+              <li class="fs-2">Quick links</li>
+              <li><a href="{% url 'aboutUs' %}">About us</a></li>
+              <li><a href="{% url 'contactUs' %}">Contact us</a></li>
+            </ul>
+          </div>
+
+          <div class="cont content-3">
+            <ul>
+              <li class="fs-2">News</li>
+            </ul>
+          </div>
+
+          <div class="cont content-4">
+            <ul>
+              <li class="fs-2">Subscribe</li>
+              <li>Sign Up to receive our newsletter and learn more</li>
+              <li>
+                <form>
+                  <div class="mb-3">
+                    <input
+                      type="text"
+                      class="form-control mb-2"
+                      placeholder="First name"
+                      name="First-name"
+                      id="first-name"
+                    />
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Email"
+                      name="Email"
+                      id="email"
+                    />
+                  </div>
+                  <a class="btn btn-danger" href="#">Sign me up</a>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    {% comment %} <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> {% endcomment %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    {% comment %} <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> {% endcomment %}
+
+    {% comment %} <script>
+      $(function() {
+        $("#tags" ).autocomplete({
+          source: "{% url 'autosuggest' %}"
+        });
+      });
+    </script> {% endcomment %}
+  </body>
+</html>

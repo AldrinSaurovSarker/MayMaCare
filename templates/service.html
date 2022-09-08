@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/service-style.css' %}" />
+
+<div class="container-fluid main-container p-5 text-center d-grid d-md-flex">
+    <div class="service-details">
+        <div class="glance d-grid">
+            {% for view in topView %}
+                <div class="glance-item">
+                    <div class="item-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <div class="item-info">
+                        <p>{{view}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="list-view">
+            <ul>
+                {% for view in listView %}
+                    <li class="list-view-item">{{view}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="question text-start p-5">
+            <h3>Any questions?</h3>
+            <p>MayMaCare offers everyday services or occasional help that makes living at home easier.<br><br>Please call us on <b>1800 786 227</b> or request a call back.</p>
+        </div>
+    </div>
+
+    <div class="in-touch">
+        <h3 class="in-touch-header">Get in touch today</h3>
+        <form class="in-touch-form">
+            {% csrf_token %}
+            <input type="text" placeholder="Name*"/>
+            <input type="email" placeholder="Email*"/>
+            <input type="text" placeholder="Phone*"/>
+            <textarea placeholder="Message*" rows="5"></textarea>
+            <div class="btn btn-dark btn-lg"> Send</div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

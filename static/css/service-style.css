@@ -1,0 +1,90 @@
+.glance {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.glance-item {
+    padding: 10px;
+}
+
+.glance-item .item-icon i {
+    font-size: 50px;
+    color: palevioletred;
+}
+
+.glance-item .item-info {
+    font-size: 20px;
+}
+
+.list-view ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    list-style-type: none;
+}
+
+.list-view ul li {
+    text-align: left;
+    padding: 15px;
+}
+
+.list-view ul li::before {
+    content: "\f14a";
+    color: palevioletred;
+    font-family: "Font Awesome 5 Free";
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 650px) {
+    .glance {
+        grid-template-columns: 1fr;
+    }
+
+    .list-view ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+.service-details {
+    width: 65%;
+}
+
+.in-touch {
+    width: 35%;
+}
+
+.in-touch-header {
+    color: palevioletred;
+}
+
+.in-touch-form input, .in-touch-form textarea {
+    width: 80%;
+    margin: 2% 5%;
+    padding: 5%;
+}
+
+.in-touch-form .btn {
+    width: 80%;
+    margin: 2% 5%;
+    padding: 2%;
+    text-align: center;
+    background-color: palevioletred;
+    border: none;
+}
+
+.in-touch-form .btn:hover {
+    background-color: #212529;
+}
+
+.question h3 {
+    color: palevioletred;
+}
+
+@media screen and (max-width: 748px) {
+    .service-details {
+        width: 100%;
+    }
+
+    .in-touch {
+        width: 100%;
+    }
+}

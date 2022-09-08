@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+    .main-content {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 30px;
+    }
+
+    @media screen and (max-width: 991px) {
+        .main-content {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .main-content a {
+        text-decoration: none;
+    }
+
+    .main-content h3 {
+        color: palevioletred;
+    }
+</style>
+
+<div class="container-fluid main-container p-5 text-center">
+    <div class="main-title text-start fs-1 p-5">
+        Search Results
+    </div>
+
+    <div class="main-content d-grid">
+        {% if searchResults %}
+            {% for searchItem in searchResults %}
+                <a class="p-5" href="{% url 'service' searchItem.id %}" class="search-item">
+                    <h3>{{searchItem.name}}</h3>
+                    <img class="img-fluid" src="{{searchItem.img.url}}">
+                </a>
+            {% endfor %}
+        {% else %}
+            <h3 class="p-5">No results found!</h3>
+        {% endif %}
+    </div><hr>
+</div>
+
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock content %}

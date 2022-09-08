@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+  .response-form .grid-holder {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  .response-form .grid-holder input, .response-form textarea {
+    padding: 15px;
+    border: 1px solid #333;
+  }
+
+  @media screen and (max-width: 600px) {
+    .response-form .grid-holder {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .response-form .grid-holder input {
+      padding: 5px;
+      width: 100%;
+    }
+  }
+
+  .response-form .btn {
+    background-color: palevioletred;
+    border: none;
+  }
+
+  .response-form .btn:hover {
+    background-color: #333;
+    border: none;
+  }
+</style>
+
+<div class="container main-container p-5 text-center">
+    <div class="main-title text-start fs-1 py-5">
+        Request a callback
+    </div>
+
+    <div class="main-content">
+        <form action="#" method="POST" class="response-form">
+        {% csrf_token %}
+          <div class="grid-holder">
+            <input type="text" name="First-name" placeholder="First name*" required>
+            <input type="text" name="Last-name" placeholder="Last name*" required>
+            <input type="email" name="Email" placeholder="Email*" required>
+            <input type="number" name="Phone" placeholder="Phone*" required>
+          </div>
+          <textarea id="message" name="Message" placeholder="Message" rows="5" class="w-100"></textarea>
+          <div class="btn btn-dark w-100">Send</div>
+        </form>
+    </div>
+</div>
+
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock content %}
