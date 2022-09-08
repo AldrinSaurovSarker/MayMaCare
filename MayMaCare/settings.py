@@ -79,10 +79,10 @@ WSGI_APPLICATION = "MayMaCare.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": 'MayMaCare',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost'
+        "NAME": 'daf83000h1utpv',
+        'USER': 'jczetgeypawuej',
+        'PASSWORD': 'da05c4b64b0b9b993f0460b03a16915dc7e2d141aa47ae803bed92ff7e81570a',
+        'HOST': 'ec2-107-23-76-12.compute-1.amazonaws.com'
     }
 }
 
