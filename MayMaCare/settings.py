@@ -129,4 +129,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
+# Constants
+COMPANY_NAME = 'MayMaCare'
+CONTACT_NUMBER = '0470628591'
+ADDRESS = '23 Stan Jones Street, Norman Gardens, QLD-4701'
+
+# Heroku setup
 django_heroku.settings(locals())

@@ -49,7 +49,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'contactUs' %}">Contact us</a>
+              <a class="nav-link" href="{% url 'contactUs' %}">Contact</a>
             </li>
           </ul>
           <form class="ms-5 d-grid d-md-flex align-middle justify-content-center" method="get" action="{% url 'search' %}">
@@ -110,7 +110,7 @@
           <div class="btn btn-outline-dark">
             <i class="fas fa-phone-volume me-2"></i>
             <span class="hotline-number">
-              <a href="tel:1800-786-227">1800 786 227</a>
+              <a href="tel:{{contact_number}}">{{contact_number}}</a>
             </span>
           </div>
 
@@ -140,7 +140,7 @@
                 </span>
                 <span class="item-info">
                   <p>
-                    <span style="font-size: 20px">1800 786 227</span><br />
+                    <span style="font-size: 20px">{{contact_number}}</span><br />
                     <span class="text-secondary">Phone Support</span>
                   </p>
                 </span>
@@ -152,7 +152,7 @@
                 </span>
                 <span class="item-info">
                   <p>
-                    <span style="font-size: 20px">info@suncare.org.au</span
+                    <span style="font-size: 20px">info{{company_name}}.org.au</span
                     ><br />
                     <span class="text-secondary">Email Support</span>
                   </p>
@@ -166,10 +166,10 @@
                 <span class="item-info">
                   <p>
                     <span style="font-size: 20px"
-                      >Suncare Business Support Office</span
+                      >{{company_name}} Business Support Office</span
                     ><br />
                     <span class="text-secondary"
-                      >Maroochydore Homemaker Centre, Sunshine Coast Qld</span
+                      >{{address}}</span
                     >
                   </p>
                 </span>

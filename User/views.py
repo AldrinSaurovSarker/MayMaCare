@@ -1,16 +1,18 @@
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.conf import settings
 from .models import Services
 
 
 # Create your views here.
 def index(request):
-    company_name = 'MayMaCare'
     banner_text = 'Excellence in Community Service'
     services = Services.objects.all()
 
     context = {
-        'company_name':company_name,
+        'company_name':settings.COMPANY_NAME,
+        'contact_number':settings.CONTACT_NUMBER,
+        'address':settings.ADDRESS,
         'services':services,
         'bannerText':banner_text,
     }
@@ -19,7 +21,6 @@ def index(request):
 
 
 def service(request, id):
-    company_name = 'MayMaCare'
     services = Services.objects.all()
     currentService = Services.objects.get(id=id)
     topView = currentService.topView
@@ -36,7 +37,9 @@ def service(request, id):
         pass
     
     context = {
-        'company_name':company_name,
+        'company_name':settings.COMPANY_NAME,
+        'contact_number':settings.CONTACT_NUMBER,
+        'address':settings.ADDRESS,
         'currentService':currentService,
         'services':services,
         'bannerText':currentService.name,
@@ -48,11 +51,12 @@ def service(request, id):
 
 
 def covidStatement(request):
-    company_name = 'MayMaCare'
     services = Services.objects.all()
     
     context = {
-        'company_name':company_name,
+        'company_name':settings.COMPANY_NAME,
+        'contact_number':settings.CONTACT_NUMBER,
+        'address':settings.ADDRESS,
         'services':services,
         'bannerText':'Coronavirus (COVID-19) MayMaCare Community Services Statement',
     }
@@ -61,11 +65,12 @@ def covidStatement(request):
 
 
 def requestCallback(request):
-    company_name = 'MayMaCare'
     services = Services.objects.all()
     
     context = {
-        'company_name':company_name,
+        'company_name':settings.COMPANY_NAME,
+        'contact_number':settings.CONTACT_NUMBER,
+        'address':settings.ADDRESS,
         'services':services,
         'bannerText':'Request Callback',
     }
@@ -74,11 +79,12 @@ def requestCallback(request):
 
 
 def aboutUs(request):
-    company_name = 'MayMaCare'
     services = Services.objects.all()
     
     context = {
-        'company_name':company_name,
+        'company_name':settings.COMPANY_NAME,
+        'contact_number':settings.CONTACT_NUMBER,
+        'address':settings.ADDRESS,
         'services':services,
         'bannerText':'About Us',
     }
@@ -87,11 +93,12 @@ def aboutUs(request):
 
 
 def contactUs(request):
-    company_name = 'MayMaCare'
     services = Services.objects.all()
     
     context = {
-        'company_name':company_name,
+        'company_name':settings.COMPANY_NAME,
+        'contact_number':settings.CONTACT_NUMBER,
+        'address':settings.ADDRESS,
         'services':services,
         'bannerText':'Contact Us',
     }
@@ -100,13 +107,14 @@ def contactUs(request):
 
 
 def search(request):
-    company_name = 'MayMaCare'
     query = request.GET['q']
     services = Services.objects.all()
     searchResults = Services.objects.filter(name__icontains=query)
     
     context = {
-        'company_name':company_name,
+        'company_name':settings.COMPANY_NAME,
+        'contact_number':settings.CONTACT_NUMBER,
+        'address':settings.ADDRESS,
         'services':services,
         'bannerText':'Search Results',
         'searchResults':searchResults
