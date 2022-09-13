@@ -16,9 +16,6 @@ def index(request):
         'services':services,
         'bannerText':banner_text,
     }
-    
-    for service in services:
-        print(service)
 
     return render(request, 'index.html', context)
 
