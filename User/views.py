@@ -7,7 +7,7 @@ from .models import Services
 # Create your views here.
 def index(request):
     banner_text = 'Excellence in Community Service'
-    services = Services.objects.all()
+    services = Services.objects.all().order_by('id')
 
     context = {
         'company_name':settings.COMPANY_NAME,
@@ -17,11 +17,14 @@ def index(request):
         'bannerText':banner_text,
     }
     
+    for service in services:
+        print(service)
+
     return render(request, 'index.html', context)
 
 
 def service(request, id):
-    services = Services.objects.all()
+    services = Services.objects.all().order_by('id')
     currentService = Services.objects.get(id=id)
     topView = currentService.topView
     listView = currentService.listView
@@ -51,7 +54,7 @@ def service(request, id):
 
 
 def covidStatement(request):
-    services = Services.objects.all()
+    services = Services.objects.all().order_by('id')
     
     context = {
         'company_name':settings.COMPANY_NAME,
@@ -65,7 +68,7 @@ def covidStatement(request):
 
 
 def requestCallback(request):
-    services = Services.objects.all()
+    services = Services.objects.all().order_by('id')
     
     context = {
         'company_name':settings.COMPANY_NAME,
@@ -79,7 +82,7 @@ def requestCallback(request):
 
 
 def aboutUs(request):
-    services = Services.objects.all()
+    services = Services.objects.all().order_by('id')
     
     context = {
         'company_name':settings.COMPANY_NAME,
@@ -93,7 +96,7 @@ def aboutUs(request):
 
 
 def contactUs(request):
-    services = Services.objects.all()
+    services = Services.objects.all().order_by('id')
     
     context = {
         'company_name':settings.COMPANY_NAME,
@@ -108,7 +111,7 @@ def contactUs(request):
 
 def search(request):
     query = request.GET['q']
-    services = Services.objects.all()
+    services = Services.objects.all().order_by('id')
     searchResults = Services.objects.filter(name__icontains=query)
     
     context = {
