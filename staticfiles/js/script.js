@@ -1,5 +1,5 @@
 var i = 0;
-bannerList = ['banner1.jpg', 'banner2.jpg', 'banner3.jpg'];
+bannerList = ['banner1.webp', 'banner2.webp', 'banner3.webp'];
 
 
 function setbackground() {
@@ -13,7 +13,6 @@ function setbackground() {
 }
 
 window.onload = () => {
-    setbackground();
     setInterval(function () {
         setbackground();
     }, 5000);

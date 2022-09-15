@@ -65,10 +65,14 @@
     </nav>
 
     <div class="banner">
+      {% if fixedBanner %}
       <div class="container-fluid banner-container" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('{{currentService.img.url}}');">
-        <div class="banner-text">
-          <h1>{{bannerText}}</h1>
-        </div>
+      {% else %}
+      <div class="container-fluid banner-container" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/static/images/banner3.webp);">
+      {% endif %}
+      
+      <div class="banner-text">
+        <h1>{{bannerText}}</h1>
       </div>
     </div>
 
@@ -111,7 +115,14 @@
           <div class="btn btn-outline-dark">
             <i class="fas fa-phone-volume me-2"></i>
             <span class="hotline-number">
-              <a href="tel:{{contact_number}}">{{contact_number}}</a>
+              <a href="tel:{{contact_number_1}}">{{contact_number_1}}</a>
+            </span>
+          </div>
+
+          <div class="ms-auto btn btn-outline-dark">
+            <i class="fas fa-phone-volume me-2"></i>
+            <span class="hotline-number">
+              <a href="tel:{{contact_number_2}}">{{contact_number_2}}</a>
             </span>
           </div>
 
@@ -141,7 +152,8 @@
                 </span>
                 <span class="item-info">
                   <p>
-                    <span style="font-size: 20px">{{contact_number}}</span><br />
+                    <span style="font-size: 20px">{{contact_number_1}}</span><br/>
+                    <span style="font-size: 20px">{{contact_number_2}}</span><br/>
                     <span class="text-secondary">Phone Support</span>
                   </p>
                 </span>
@@ -153,7 +165,7 @@
                 </span>
                 <span class="item-info">
                   <p>
-                    <span style="font-size: 20px">info{{company_name}}.org.au</span
+                    <span style="font-size: 20px">{{email}}</span
                     ><br />
                     <span class="text-secondary">Email Support</span>
                   </p>

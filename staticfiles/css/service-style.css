@@ -9,7 +9,7 @@
 
 .glance-item .item-icon i {
     font-size: 50px;
-    color: palevioletred;
+    color: var(--base-color);
 }
 
 .glance-item .item-info {
@@ -29,7 +29,7 @@
 
 .list-view ul li::before {
     content: "\f14a";
-    color: palevioletred;
+    color: var(--base-color);
     font-family: "Font Awesome 5 Free";
     margin-right: 10px;
 }
@@ -53,7 +53,7 @@
 }
 
 .in-touch-header {
-    color: palevioletred;
+    color: var(--base-color);
 }
 
 .in-touch-form input, .in-touch-form textarea {
@@ -67,7 +67,7 @@
     margin: 2% 5%;
     padding: 2%;
     text-align: center;
-    background-color: palevioletred;
+    background-color: var(--base-color);
     border: none;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .question h3 {
-    color: palevioletred;
+    color: var(--base-color);
 }
 
 @media screen and (max-width: 748px) {

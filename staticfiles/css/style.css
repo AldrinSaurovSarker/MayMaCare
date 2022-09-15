@@ -1,3 +1,8 @@
+:root {
+    --base-color: orange;
+}
+
+
 * {
     word-wrap: break-word;
     padding: 0;
@@ -36,8 +41,8 @@
 }
 
 .nav-item a:hover, .nav-item .active {
-    color: palevioletred !important;
-    border-bottom-color: palevioletred;
+    color: var(--base-color) !important;
+    border-bottom-color: var(--base-color);
 }
 
 @media screen and (max-width: 300px) {
@@ -47,7 +52,7 @@
 }
 
 .banner {
-    height: 100vh;
+    height: 80vh;
     width: 100%;
 }
 
@@ -56,7 +61,8 @@
     height: 100%;
     width: 100%;
     background-position: center;
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .banner-text {
@@ -86,7 +92,7 @@
 }
 
 .statement {
-    background-color: palevioletred;
+    background-color: var(--base-color);
     text-align: center;
 }
 
@@ -151,7 +157,7 @@
 }
 
 .footer-content a:hover {
-    color: palevioletred;
+    color: var(--base-color);
 }
 
 .footer-content li {
@@ -170,7 +176,7 @@
     justify-content: center;
     font-size: 3vh;
     color: #212529;
-    background-color: palevioletred;
+    background-color: var(--base-color);
     border-radius: 50%;
     width: 7vh;
     height: 7vh;
@@ -280,8 +286,20 @@
     color: yellow;
 }
 
+.content-4 .btn {
+    background-color: var(--base-color);
+    border-color: var(--base-color);
+    color: white;
+}
+
+.content-4 .btn:hover {
+    background-color: yellow;
+    color: black;
+}
+
+
 .support-team {
-    background-color: palevioletred;
+    background-color: var(--base-color);
     color: white;
     display: flex;
 }
@@ -337,7 +355,7 @@
     color: white;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 700px) {
     .support-team .support-right .btn-group {
         display: grid;
         align-items: center;
@@ -355,5 +373,5 @@
 }
 
 .main-container .main-content h2 {
-    color: palevioletred;
+    color: var(--base-color);
 }

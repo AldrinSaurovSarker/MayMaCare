@@ -132,7 +132,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Constants
 COMPANY_NAME = 'MayMaCare'
-CONTACT_NUMBER = '0470628591'
+CONTACT_NUMBER_1 = '0470 628 591'
+CONTACT_NUMBER_2 = '0448 949 958'
+EMAIL = 'maymacare@gmail.com'
 ADDRESS = '23 Stan Jones Street, Norman Gardens, QLD-4701'
 
 # Heroku setup
