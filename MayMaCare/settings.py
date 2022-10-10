@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +25,7 @@ SECRET_KEY = "django-insecure-9wg3f-$(794e60i&kqsvk&+rbe9q1_79*hl^_6@u20hpwekx8*
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1:8000', 'www.maymacare.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -52,7 +51,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "MayMaCare.urls"
+ROOT_URLCONF = "maymacare.urls"
 
 TEMPLATES = [
     {
@@ -70,22 +69,32 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "MayMaCare.wsgi.application"
+WSGI_APPLICATION = "maymacare.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": 'daf83000h1utpv',
+#         'USER': 'jczetgeypawuej',
+#         'PASSWORD': 'da05c4b64b0b9b993f0460b03a16915dc7e2d141aa47ae803bed92ff7e81570a',
+#         'HOST': 'ec2-107-23-76-12.compute-1.amazonaws.com'
+#     }
+# }
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": 'daf83000h1utpv',
-        'USER': 'jczetgeypawuej',
-        'PASSWORD': 'da05c4b64b0b9b993f0460b03a16915dc7e2d141aa47ae803bed92ff7e81570a',
-        'HOST': 'ec2-107-23-76-12.compute-1.amazonaws.com'
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": 'maymacare',
+        'HOST': '127.0.0.1',
+        'PORT':'3306',
+        'USER': 'root',
+        'PASSWORD': 'saurov180204',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -136,6 +145,3 @@ CONTACT_NUMBER_1 = '0470 628 591'
 CONTACT_NUMBER_2 = '0448 949 958'
 EMAIL = 'maymacare@gmail.com'
 ADDRESS = '23 Stan Jones Street, Norman Gardens, QLD-4701'
-
-# Heroku setup
-django_heroku.settings(locals())
